@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</p>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col">Chapter</th>
+    <th scope="col">Verse</th>
+    <th scope="col">Verse text</th>
+    <th  scope="col"colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @book.verses.each do |verse| %>
+    <tr>
+      <td><%= verse.chapter %></td>
+      <td><%= verse.verse %></td>
+      <td><%= verse.verse_text %></td>
+      <td><%= link_to 'Show', verse %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Back', books_path %>
