@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Verses</h1>
+<h1>Verses </h1>
+
+<%= form_tag(verses_path, method: :get, class:'form-inline' )do %>
+<%= text_field_tag(:search, params[:search], class:'form-control' )%>
+<%= submit_tag ("Search") ,class:'btn btn-outline-primary'%>
+<% end %>
+
+<p class="text-muted small"><%= @verses.count %> verses</p>
 
 <table>
   <thead>
@@ -16,7 +23,7 @@
   <tbody>
     <% @verses.each do |verse| %>
       <tr>
-        <td><%= verse.book %></td>
+        <td><%= verse.book.name %></td>
         <td><%= verse.chapter %></td>
         <td><%= verse.verse %></td>
         <td><%= verse.verse_text %></td>

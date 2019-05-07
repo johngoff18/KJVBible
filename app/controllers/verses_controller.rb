@@ -4,7 +4,11 @@ class VersesController < ApplicationController
   # GET /verses
   # GET /verses.json
   def index
-    @verses = Verse.first(500)
+    if(params[:search])
+      @verses = Verse.where('verse_text LIKE ?', "%#{params[:search]}%")
+    else
+      @verses = Verse.first(500)
+    end
   end
 
   # GET /verses/1
@@ -69,6 +73,6 @@ class VersesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def verse_params
-      params.require(:verse).permit(:book, :chapter, :verse, :verse_text)
+      params.require(:verse).permit(:book, :chapter, :verse, :verse_text, :search)
     end
 end

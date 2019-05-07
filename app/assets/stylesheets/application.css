@@ -17,3 +17,7 @@
 body {
 	background-color:rgba(242,238,203,0.5) !important;
 }
+
+.search-btn {
+	border-radius: 0 !important;
+}
