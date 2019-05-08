@@ -20,4 +20,10 @@ body {
 
 .search-btn {
 	border-radius: 0 !important;
+	align:right !important;
+}
+
+.search-navbar{
+	width:auto;
+	min-width:350px;
 }

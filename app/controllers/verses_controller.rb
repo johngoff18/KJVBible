@@ -5,9 +5,9 @@ class VersesController < ApplicationController
   # GET /verses.json
   def index
     if(params[:search])
-      @verses = Verse.where('verse_text LIKE ?', "%#{params[:search]}%")
+      @verses = Verse.where('verse_text LIKE ?', "%#{params[:search]}%").page params[:page]
     else
-      @verses = Verse.first(500)
+      @verses = Verse.first(100)
     end
   end
 
