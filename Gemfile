@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.3'
 group :development do
   gem 'sqlite3'
   gem 'seed_dump'
+  gem 'rails_real_favicon'
 end
 
 group :production do
