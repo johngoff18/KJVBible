@@ -21,4 +21,7 @@
 
 	$(document).on("turbolinks:load", function(){
 	  $(".spinner").hide();
+	  $(".search-navbar").val("");
+	  $("#q_book_or_verse_text_cont").val("");
+	  
 	});

@@ -4,11 +4,8 @@ class VersesController < ApplicationController
   # GET /verses
   # GET /verses.json
   def index
-    if(params[:search])
-      @verses = Verse.where('verse_text LIKE ?', "%#{params[:search]}%").page params[:page]
-    else
-      @verses = Verse.first(100)
-    end
+    @q = Verse.ransack(params[:q])
+    @verses = @q.result(distinct: true).page params[:page]
   end
 
   # GET /verses/1

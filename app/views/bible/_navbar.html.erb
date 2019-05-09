@@ -2,13 +2,14 @@
 	<%= link_to root_path , class:'navbar-brand col-sm-3 col-md-2 mr-0' do %>
   <i class="fas fa-bible"></i> KJV Bible
   <% end %>
+  
+  <%= search_form_for @q ,:html => {class:'form-inline navbar-form navbar-left w-100'} do |f|  %>
+  <%= f.search_field :book_or_verse_text_cont, class:'form-control form-control-dark mr-sm-2 search-navbar  my-2 my-sm-0 col-9', placeholder: "Search" %>
+  <%= f.submit 'Search ',class:'btn btn-outline-warning search-btn navbar-right'%>
+  <% end %>
   <div class="spinner spinner-border text-light" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-  <%= form_tag(verses_path, method: :get, class:'form-inline navbar-form navbar-left w-100' )do %>
-  <%= text_field_tag(:search, params[:search], class:'form-control form-control-dark mr-sm-2 search-navbar  my-2 my-sm-0', placeholder: "Search" )%>
-  <%= submit_tag ("Search") ,class:'btn btn-outline-primary search-btn navbar-right'%>
-  <% end %>
 </nav>
 
   

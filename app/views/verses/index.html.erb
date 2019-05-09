@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Verses </h1>
+<h1>Verses</h1>
 
-<%= form_tag(verses_path, method: :get, class:'form-inline' )do %>
-<%= text_field_tag(:search, params[:search], class:'form-control' )%>
-<%= submit_tag ("Search") ,class:'btn btn-outline-primary'%>
-<% end %>
+  <%= search_form_for @q , :html => {class:"form-inline"} do |f| %>
+  <%= f.search_field :book_or_verse_text_cont , class:"form-control"%>
+  <%= f.submit 'Search', class:"btn btn-outline-primary"%>
+  <% end %>
 
 <p class="text-muted small"><%= @verses.count %> verses</p>
 
